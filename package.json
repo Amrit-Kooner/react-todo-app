@@ -1,13 +1,15 @@
 {
+  "homepage": "https://Amrit-Kooner.github.io/react-todo-app/",
   "name": "reacttodoapp",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "react": "^18.2.0",
