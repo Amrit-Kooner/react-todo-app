@@ -1,5 +1,11 @@
 :root{
-
+  --seperator-margin: 1rem;
+  --seperator-padding: 1.5rem;
+  --primary: #FFD670;
+  --secondary: #FF9770;
+  --teritary: #70D6FF;
+  --quaternary: #FF70A6;
+  --input: #E5E5E5;
 }
 
 *,
@@ -17,40 +23,125 @@ html{
 
 body{
   font-size: 1.6rem;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--primary);
+  
 }
+
+/* ------------------------------------------------------ */
 
 .container{
   max-width: 95rem;
-  margin: 0 auto;
-}
-
-/* -- */
-
-.task{
+  margin: 2.5rem auto;
   display: flex;
-
+  justify-content: center;
 }
 
-.task-name{
-
+.wrapper{
+  padding: 2.5rem;
+  max-width: 60rem;
+  width: 100%
 }
 
-.task-name.active{
+.btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--teritary);
+  border: none;
+  border-radius: 25px;
+  padding: 5px;
+}
+
+.btn img{
+  height: 2rem;
+  width: 2rem;
+}
+
+.btn:hover{
+  filter: brightness(90%);
+}
+input[type="text"]:hover{
+  filter: brightness(90%);
+}
+
+.btn:active{
+  background-color:   var(--quaternary);
+}
+
+input[type="text"]{  
+  flex: 1;
+  min-width: 10rem;
+  margin-right: var(--seperator-padding);
+  align-self: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--input);
+  border: none;
+  font-size: 1.2rem;
+  border: 0.2rem solid var(--primary)
+}
+
+input[type="text"]:focus{
+  outline: none;
+}
+
+input[type="text"]::placeholder{
+  font-size: 1.2rem;
+}
+
+/* ------------------------------------------------------ */
+
+.header-wrapper{
+  background-color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--seperator-padding) var(--seperator-padding);
+  margin-bottom: var(--seperator-margin);
+  height: 5rem;
+}
+
+.header-wrapper .header-title{
+  color: #2B2D42;
+}
+
+/* ------------------------------------------------------ */
+
+.search-bar{
+  background-color: var(--secondary);
+  display: flex;
+  padding: var(--seperator-padding) var(--seperator-padding);
+  margin-bottom: var(--seperator-margin)
+}
+
+/* ------------------------------------------------------ */
+
+.edit-form,
+.todo{
+  background-color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--seperator-padding) var(--seperator-padding);
+  margin-bottom: var(--seperator-margin);
+  font-size: 1.3rem
+}
+
+.todo-title{
+  word-break: break-word;
+  margin-right: var(--seperator-padding)
+}
+
+.todo-ops{
+  display: flex;
+  gap: 1.5rem;
+}
+
+.todo-title.active{
   text-decoration: line-through;
 }
 
-.task-name.active + .ops .check-btn{
-  background-color: red;
-}
-
-.ops{
-
-}
-
-.op-btn{
-  cursor: pointer;
-}
-
-.edit-form{
-  display: flex;
+.todo-title.active + .todo-ops .check-btn{
+  background-color:   var(--quaternary);
 }

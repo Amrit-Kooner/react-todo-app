@@ -38,17 +38,17 @@ function Todo({ todo, handleEdit, handleDelete, handleCheck }) {
   }
 
   const taskElement = (
-    <div className='task'>
-      <span className={`task-name ${todo.isChecked ? 'active' : null}`}>{todo.task}</span>
+    <div className='todo'>
+      <span className={`todo-title ${todo.isChecked ? 'active' : null}`}>{todo.task}</span>
 
-      <div className='task-ops ops'>
-        <button className='op-btn check-btn' onClick={() => handleCheck(todo.id)}>
+      <div className='todo-ops'>
+        <button className='check-btn btn' title='check' onClick={() => handleCheck(todo.id)}>
           <img src={checkIcon} alt='check icon'/>
         </button>
-        <button className='op-btn edit-btn' onClick={() => setEditToggle(true)}>
+        <button className='edit-btn btn' title='edit' onClick={() => setEditToggle(true)}>
           <img src={editIcon} alt='edit icon'/>
         </button>
-        <button className='op-btn delete-btn' onClick={confirmDelete}>
+        <button className='delete-btn btn' title='delete' onClick={confirmDelete}>
           <img src={trashIcon} alt='trash icon'/>
         </button>
       </div>
@@ -57,19 +57,19 @@ function Todo({ todo, handleEdit, handleDelete, handleCheck }) {
 
   const editForm = (
     <form className='edit-form' onSubmit={confirmEdit}>
-      <input className='edit-input' type='text' value={newTask} maxLength={100} onChange={(event) => setNewTask(event.target.value)}/>
+      <input className='edit-input' type='text' placeholder='Enter New Task...' value={newTask} maxLength={100} onChange={(event) => setNewTask(event.target.value)}/>
 
-      <div className='edit-form-ops ops'>
-        <button className='save-btn' type='submit'><img src={saveIcon} alt="save icon"/></button>
-        <button className='cancel-btn' onClick={() => setEditToggle(false)}><img src={cancelIcon} alt="cancel icon"/></button>
+      <div className='todo-ops'>
+        <button className='save-btn btn' title='save' type='submit'><img src={saveIcon} alt="save icon"/></button>
+        <button className='cancel-btn btn' title='cancel' onClick={() => setEditToggle(false)}><img src={cancelIcon} alt="cancel icon"/></button>
       </div>
     </form>
   )
 
   return ( 
-    <div className='task-list'>
+    <>
       {editToggle ? editForm : taskElement}
-    </div>
+    </>
   )
 }
 

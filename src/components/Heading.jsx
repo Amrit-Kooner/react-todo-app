@@ -8,7 +8,7 @@ function Heading({ handleClear, todoLength }) {
     const confirmationWord = "DELETE"
     const userInput = prompt(`Enter '${confirmationWord}' to confirm deletion.`).trim()
 
-    if(userInput !== confirmationWord){
+    if(userInput.toUpperCase() !== confirmationWord){
       alert(`You failed to enter '${confirmationWord}'`)
       console.error("user entered incorrect conformation word")
       return -1
@@ -18,9 +18,9 @@ function Heading({ handleClear, todoLength }) {
   }
 
   return (
-    <div className=''>
-      <span className=''>Personal Todo List:</span>
-      {todoLength != 0 ? <button className='' onClick={confirmClear}><img src={trashIcon} alt='trash icon'/></button> : null}
+    <div className='header-wrapper'>
+      <h4 className='header-title'>Todo List</h4>
+      {todoLength != 0 ? <button className='clear-btn btn' title='clear' onClick={confirmClear}><img src={trashIcon} alt='trash icon'/></button> : null}
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import '../global.css'
+import addIcon from '../assets/svg/add-icon.svg'
 
 function CreateTodo({ handleCreate }) {
     const [task, setTask] = useState("");
@@ -18,11 +19,9 @@ function CreateTodo({ handleCreate }) {
     }
 
     return (
-        <form className='create-form' onSubmit={validateTask}>
-            <div className='search-bar'>
-                <input className='search-input' type='text' placeholder='Enter Task...' maxLength={100} value={task} onChange={(event) => setTask(event.target.value)}/>
-                <button className="search-btn" type='submit'>Create</button>
-            </div>
+        <form className='search-bar' onSubmit={validateTask}>
+            <input className='search-input' type='text' placeholder='Enter Task...' maxLength={100} value={task} onChange={(event) => setTask(event.target.value)}/>
+            <button className="search-btn btn" type='submit' title='create'><img src={addIcon} alt='add icon'/></button>
         </form>
     )
 }

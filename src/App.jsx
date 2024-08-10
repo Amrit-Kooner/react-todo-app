@@ -54,9 +54,11 @@ function App() {
 
   return (
     <div className='container'>
-      <Heading handleClear={clearTodo} todoLength={todos.length}/>
-      <CreateTodo handleCreate={createTodo} />
-      <ListTodo toDoItems={todos} handleEdit={editTodo} handleDelete={deleteTodo} handleCheck={checkTodo}/>
+      <div className='wrapper'>
+        <Heading handleClear={clearTodo} todoLength={todos.length}/>
+        <CreateTodo handleCreate={createTodo} />
+        <ListTodo toDoItems={todos} handleEdit={editTodo} handleDelete={deleteTodo} handleCheck={checkTodo}/>
+      </div>
     </div>
   )
 }
